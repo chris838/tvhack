@@ -23,18 +23,18 @@
 	$('#emp').append('<div id="wfm-container"><div class="wfm-header"><div class="wfm-logo"></div></div><div class="wfm-playback"><div class="countdown"><p>Playback Starts in...</p><div class="wfm-timer"><p id="wfm-countdown-timer">35<span>s</span></p></div></div></div><div class="wfm-login"><div class="wfm-members"></div></div></div>');
 
 
-	$( "#emp" ).css({ 'margin' : '0', 'position' : 'relative', 'left' : '320px'});
+	$( "#emp" ).css({ 'margin' : '0', 'position' : 'relative', 'left' : '170px'});
 	$( "#emp-container" ).css({ 'position' : 'relative'});
 
 
+
 	$( "#emp" ).animate({
-		left: "-=250"
+		left: "-=150"
 		    }, 1000, function() {
 
 		$( "#emp" ).css('float','left');
 		$( "<iframe src='http://uk.zeebox.com/tv/rooms/c0426879-3b27-11e3-41a0-65fa576628a8/embedded' width='300' height='360' style='float:right'></iframe>"  ).insertAfter("#emp");
 	    });
-
 
     }
 })();
