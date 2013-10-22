@@ -1,0 +1,78 @@
+#wfm-container
+{
+    background-color: rgba(255,255,255, 0.75);
+    width:640px;
+    height:360px;
+    position: absolute;
+top: 0;
+left: 0;
+}
+
+.wfm-header
+{
+    height:95px;
+}
+
+.wfm-playback
+{
+    height:175px;
+}
+
+.wfm-login
+{
+    background-color: #FFF;
+    width:630px;
+    height:80px;
+    border:5px solid rgba(0,0,0,0.2);
+}
+
+.countdown
+{
+    margin: 30px 0 0 30px;
+
+}
+
+.countdown p
+{
+    font-family: 'Helvetica';
+    font-weight: bold;
+    font-size: 24px;
+    float: left;
+    width: 330px;
+    padding: 40px 0 0 0;
+}
+
+.wfm-logo
+{
+    width: 150px; height: 49px;
+    background-image: url('waitforme.png');
+}
+
+.wfm-members
+{
+    width: 277px; height: 50px;
+    background-image: url('members.png');
+    margin-top: 10px;
+}
+
+.wfm-timer
+{
+    float:left;
+    width: 176px; height: 176px;
+    background-image: url('timer-bg.png');
+}
+
+.wfm-timer p
+{
+    padding:0;
+font-size: 78px;
+margin-top: 35px;
+margin-left: 37px;
+
+}
+
+.wfm-timer span
+{
+font-size: 36px;
+
+}
