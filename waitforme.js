@@ -56,11 +56,24 @@
 		    setTimeout("$('#wikiframe').remove()", 750);
 
 	$('head').append('<link rel="stylesheet" type="text/css" href="http://zvps.co/tvhack/waitforme.css">');
-	$('#emp').append('<div id="wfm-container"><div class="wfm-header"><div class="wfm-logo-header"><div class="wfm-logo"></div></div></div><div class="wfm-playback"><div class="countdown"><p>Playback Starts in...</p><div class="wfm-timer"><p id="wfm-countdown-timer">32<span>s</span></p></div></div></div><div class="spacer"></div><div class="wfm-login"><div class="wfm-members"></div></div></div>');
+	$('#emp').append('<div id="wfm-container"><div class="wfm-header"><div class="wfm-logo-header"><div class="wfm-logo"></div></div></div><div class="wfm-playback"><div class="countdown"><p>Playback Starts in...</p><div class="wfm-timer"><p id="wfm-countdown-timer">32<span>s</span></p></div></div></div><div class="spacer"></div><div class="wfm-login"><div id="wfm-members-container" class="wfm-members"><div id="member-1" class="member"><img src="http://zvps.co/tvhack/member-1.jpg" width="50" height="50" /></div><div id="member-2" class="member"><img src="http://zvps.co/tvhack/member-2.jpg" width="50" height="50" /></div><div id="member-3" class="member"><img src="http://zvps.co/tvhack/member-3.jpg" width="50" height="50" /></div><div id="member-4" class="member"><img src="http://zvps.co/tvhack/member-4.jpg" width="50" height="50" /></div></div><div id="member-name"><p class="wfm-member-name"></p></div></div></div>');
 
 
 	$( "#emp" ).css({ 'margin' : '0', 'position' : 'relative', 'left' : '170px'});
 	$( "#emp-container" ).css({ 'position' : 'relative'});
+
+var members = $('.member');
+var members = [];
+var names = [ 'Areion', 'Chris', 'Steve', 'Alex' ]
+    $( ".member" ).css( { 'width' : '50px', 'float' : 'left' , 'position' : 'relative' } );
+
+$( ".member" ).each( function( index, elem )
+		     {
+			 
+			 $(elem).css( {'left' : ( 350 + 50 )+ 'px', 'opacity' : '0' });
+			 members.push( $(elem));
+			     }
+		     )
 
 	$( "#emp" ).animate({
 		left: "-=150"
@@ -71,6 +84,34 @@
 
 		var countdown = 32;
 		var timer = setInterval(function(){ onTimer() }, 1000);
+
+		var timeout = setTimeout( function() { moveElement() }, 1000 );
+
+var currentindex = 0
+    function moveElement()
+{
+    if ( currentindex < members.length )
+	{   
+	    $('.wfm-member-name').css({ 'opacity' : '0' })
+        var elem = members[ currentindex ]
+	    $( elem ).animate({ left : '-=375', opacity : '1' });
+	    $('.wfm-member-name').html( names[currentindex] +' has logged in').animate({ opacity : '1' }, 1000, onComplete)
+        currentindex ++
+        
+	    timeout = setTimeout( function() { moveElement() }, 3000 );
+	} else {
+        clearTimeout( timeout );
+
+    }
+}
+
+function onComplete()
+{
+    if ( currentindex == 3 ) {
+	$('.wfm-member-name').css({ 'opacity' : '0' })
+	    } 
+    else { $('.wfm-member-name').css({ 'opacity' : '1' }) }
+}
 
 function onTimer()
 {
