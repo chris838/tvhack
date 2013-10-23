@@ -56,7 +56,7 @@
 		    setTimeout("$('#wikiframe').remove()", 750);
 
 	$('head').append('<link rel="stylesheet" type="text/css" href="http://zvps.co/tvhack/waitforme.css">');
-	$('#emp').append('<div id="wfm-container"><div class="wfm-header"><div class="wfm-logo"></div></div><div class="wfm-playback"><div class="countdown"><p>Playback Starts in...</p><div class="wfm-timer"><p id="wfm-countdown-timer">35<span>s</span></p></div></div></div><div class="wfm-login"><div class="wfm-members"></div></div></div>');
+	$('#emp').append('<div id="wfm-container"><div class="wfm-header"><div class="wfm-logo-header"><div class="wfm-logo"></div></div></div><div class="wfm-playback"><div class="countdown"><p>Playback Starts in...</p><div class="wfm-timer"><p id="wfm-countdown-timer">32<span>s</span></p></div></div></div><div class="spacer"></div><div class="wfm-login"><div class="wfm-members"></div></div></div>');
 
 
 	$( "#emp" ).css({ 'margin' : '0', 'position' : 'relative', 'left' : '170px'});
@@ -68,8 +68,25 @@
 
 		$( "#emp" ).css('float','left');
 		$( "<iframe src='http://uk.zeebox.com/tv/rooms/c0426879-3b27-11e3-41a0-65fa576628a8/embedded' width='300' height='600' style='float:right'></iframe>"  ).insertAfter("#emp");
+
+		var countdown = 32;
+		var timer = setInterval(function(){ onTimer() }, 1000);
+
+function onTimer()
+{
+    if ( countdown > 0)
+	{
+	    $('#wfm-countdown-timer').html( countdown-- +'<span>s</span>')
+	}
+    else {
+	window.clearInterval( timer );
+	window.embeddedMedia.playerInstances.emp.setFlashvar('config_settings_autoPlay', 'true');
+	window.embeddedMedia.playerInstances.emp.writeEmp()
+    }
+
+}
 	    });
-			}, 5000);
+			}, 5000 );
 
 		});
 

@@ -10,12 +10,13 @@ left: 0;
 
 .wfm-header
 {
-    height:95px;
+    height:35px;
 }
 
 .wfm-playback
 {
     height:175px;
+    padding-left: 90px;
 }
 
 .wfm-login
@@ -34,18 +35,25 @@ left: 0;
 
 .countdown p
 {
+    color: black;
     font-family: 'Helvetica';
     font-weight: bold;
-    font-size: 24px;
+    font-size: 32px;
     float: left;
     width: 330px;
     padding: 40px 0 0 0;
 }
 
+.wfm-logo-header
+{
+    background-color: white;
+    height:55px;
+}
+
 .wfm-logo
 {
-    width: 150px; height: 49px;
-    background-image: url('waitforme.png');
+    width: 230px; height: 50px;
+    background-image: url('logo.png');
 }
 
 .wfm-members
@@ -64,6 +72,7 @@ left: 0;
 
 .wfm-timer p
 {
+    color: black;
     padding:0;
 font-size: 78px;
 margin-top: 35px;
@@ -75,4 +84,9 @@ margin-left: 37px;
 {
 font-size: 36px;
 
+}
+
+.spacer
+{
+    height: 40px;
 }
